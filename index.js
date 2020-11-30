@@ -1,4 +1,6 @@
 import { LEVEL, OBJECT_TYPE } from './setup';
+import { randomMovement } from './ghostMoves';
+
 // Classes
 import GameBoard from './GameBoard';
 import Pacman from './Pacman';
