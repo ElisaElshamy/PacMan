@@ -25,7 +25,13 @@ let powerPillActive =  false;
 let powerPillTimer = null;
 
 function gameOver(pacman, ghosts) {
+    document.removeEventListener('keydown', e =>
+        pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard))
+    );
 
+    gameBoard.showGameStatus(gameWin);
+    clearInterval(timer);
+    startButton.classList.remove('hide');
 }
 
 function checkCollision(pacman, ghosts) {

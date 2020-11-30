@@ -607,7 +607,14 @@ var gameWin = false;
 var powerPillActive = false;
 var powerPillTimer = null;
 
-function gameOver(pacman, ghosts) {}
+function gameOver(pacman, ghosts) {
+  document.removeEventListener('keydown', function (e) {
+    return pacman.handleKeyInput(e, gameBoard.objectExist.bind(gameBoard));
+  });
+  gameBoard.showGameStatus(gameWin);
+  clearInterval(timer);
+  startButton.classList.remove('hide');
+}
 
 function checkCollision(pacman, ghosts) {
   var collidedGhost = ghosts.find(function (ghost) {
